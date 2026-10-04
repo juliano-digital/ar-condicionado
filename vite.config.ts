@@ -3,24 +3,33 @@ import { tanstackStart } from '@tanstack/react-start/plugin/vite'
 import viteReact from '@vitejs/plugin-react'
 import viteTsConfigPaths from 'vite-tsconfig-paths'
 import tailwindcss from '@tailwindcss/vite'
+import { siteUrl } from './src/lib/site-config'
 
 const config = defineConfig({
-  base: './', // ✅ Caminhos relativos — essencial para funcionar
+  base: '/',
   plugins: [
     viteTsConfigPaths({
       projects: ['./tsconfig.json'],
     }),
     tailwindcss(),
-    tanstackStart(),
+    tanstackStart({
+      pages: [{ path: '/' }, { path: '/servicos/', sitemap: { exclude: true } }],
+      prerender: {
+        enabled: true,
+        crawlLinks: true,
+        autoSubfolderIndex: true,
+        failOnError: true,
+      },
+      sitemap: {
+        enabled: true,
+        host: siteUrl,
+      },
+    }),
     viteReact(),
-    // ❌ REMOVIDO: plugin do Netlify — não funciona na Hostinger
   ],
   build: {
-    outDir: 'dist', // ✅ Pasta de saída = dist (igual na Hostinger)
+    outDir: 'dist',
     emptyOutDir: true,
-  },
-  ssr: {
-    noExternal: true, // ✅ Ajuda a empacotar tudo para hospedagem estática
   },
 })
 

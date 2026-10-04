@@ -1,4 +1,6 @@
-export const siteUrl = (import.meta.env.VITE_SITE_URL || 'https://calm-lily-e671e8.netlify.app').replace(/\/$/, '')
+import { siteUrl } from './site-config'
+
+export { siteUrl }
 export const siteName = 'Argelado | Instalação de Ar-Condicionado em Canoas, RS'
 export const siteDescription = 'Instalação de ar-condicionado split em Canoas, RS. Soluções para casas, apartamentos e empresas. Fale com a Argelado e solicite seu orçamento pelo WhatsApp.'
 export const phone = '(51) 99366-7248'

@@ -16,8 +16,6 @@ import { Route as ContatoRouteImport } from './routes/contato'
 import { Route as DuvidasRouteImport } from './routes/duvidas'
 import { Route as PorQueArgeladoRouteImport } from './routes/por-que-argelado'
 import { Route as PrivacidadeRouteImport } from './routes/privacidade'
-import { Route as RobotsDottxtRouteImport } from './routes/robots[.]txt'
-import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
 import { Route as GuiaInstalacaoArCondicionadoRouteImport } from './routes/guia.instalacao-ar-condicionado'
 import { Route as ServicosIndexRouteImport } from './routes/servicos.index'
 import { Route as ServicosSlugRouteImport } from './routes/servicos.$slug'
@@ -57,16 +55,6 @@ const PrivacidadeRoute = PrivacidadeRouteImport.update({
   path: '/privacidade',
   getParentRoute: () => rootRouteImport,
 } as any)
-const RobotsDottxtRoute = RobotsDottxtRouteImport.update({
-  id: '/robots.txt',
-  path: '/robots.txt',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
-  id: '/sitemap.xml',
-  path: '/sitemap.xml',
-  getParentRoute: () => rootRouteImport,
-} as any)
 const GuiaInstalacaoArCondicionadoRoute =
   GuiaInstalacaoArCondicionadoRouteImport.update({
     id: '/guia/instalacao-ar-condicionado',
@@ -92,8 +80,6 @@ export interface FileRoutesByFullPath {
   '/duvidas': typeof DuvidasRoute
   '/por-que-argelado': typeof PorQueArgeladoRoute
   '/privacidade': typeof PrivacidadeRoute
-  '/robots.txt': typeof RobotsDottxtRoute
-  '/sitemap.xml': typeof SitemapDotxmlRoute
   '/guia/instalacao-ar-condicionado': typeof GuiaInstalacaoArCondicionadoRoute
   '/servicos/$slug': typeof ServicosSlugRoute
   '/servicos/': typeof ServicosIndexRoute
@@ -106,8 +92,6 @@ export interface FileRoutesByTo {
   '/duvidas': typeof DuvidasRoute
   '/por-que-argelado': typeof PorQueArgeladoRoute
   '/privacidade': typeof PrivacidadeRoute
-  '/robots.txt': typeof RobotsDottxtRoute
-  '/sitemap.xml': typeof SitemapDotxmlRoute
   '/guia/instalacao-ar-condicionado': typeof GuiaInstalacaoArCondicionadoRoute
   '/servicos/$slug': typeof ServicosSlugRoute
   '/servicos': typeof ServicosIndexRoute
@@ -121,8 +105,6 @@ export interface FileRoutesById {
   '/duvidas': typeof DuvidasRoute
   '/por-que-argelado': typeof PorQueArgeladoRoute
   '/privacidade': typeof PrivacidadeRoute
-  '/robots.txt': typeof RobotsDottxtRoute
-  '/sitemap.xml': typeof SitemapDotxmlRoute
   '/guia/instalacao-ar-condicionado': typeof GuiaInstalacaoArCondicionadoRoute
   '/servicos/$slug': typeof ServicosSlugRoute
   '/servicos/': typeof ServicosIndexRoute
@@ -137,8 +119,6 @@ export interface FileRouteTypes {
     | '/duvidas'
     | '/por-que-argelado'
     | '/privacidade'
-    | '/robots.txt'
-    | '/sitemap.xml'
     | '/guia/instalacao-ar-condicionado'
     | '/servicos/$slug'
     | '/servicos/'
@@ -151,8 +131,6 @@ export interface FileRouteTypes {
     | '/duvidas'
     | '/por-que-argelado'
     | '/privacidade'
-    | '/robots.txt'
-    | '/sitemap.xml'
     | '/guia/instalacao-ar-condicionado'
     | '/servicos/$slug'
     | '/servicos'
@@ -165,8 +143,6 @@ export interface FileRouteTypes {
     | '/duvidas'
     | '/por-que-argelado'
     | '/privacidade'
-    | '/robots.txt'
-    | '/sitemap.xml'
     | '/guia/instalacao-ar-condicionado'
     | '/servicos/$slug'
     | '/servicos/'
@@ -180,8 +156,6 @@ export interface RootRouteChildren {
   DuvidasRoute: typeof DuvidasRoute
   PorQueArgeladoRoute: typeof PorQueArgeladoRoute
   PrivacidadeRoute: typeof PrivacidadeRoute
-  RobotsDottxtRoute: typeof RobotsDottxtRoute
-  SitemapDotxmlRoute: typeof SitemapDotxmlRoute
   GuiaInstalacaoArCondicionadoRoute: typeof GuiaInstalacaoArCondicionadoRoute
   ServicosSlugRoute: typeof ServicosSlugRoute
   ServicosIndexRoute: typeof ServicosIndexRoute
@@ -238,20 +212,6 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof PrivacidadeRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/robots.txt': {
-      id: '/robots.txt'
-      path: '/robots.txt'
-      fullPath: '/robots.txt'
-      preLoaderRoute: typeof RobotsDottxtRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/sitemap.xml': {
-      id: '/sitemap.xml'
-      path: '/sitemap.xml'
-      fullPath: '/sitemap.xml'
-      preLoaderRoute: typeof SitemapDotxmlRouteImport
-      parentRoute: typeof rootRouteImport
-    }
     '/guia/instalacao-ar-condicionado': {
       id: '/guia/instalacao-ar-condicionado'
       path: '/guia/instalacao-ar-condicionado'
@@ -284,8 +244,6 @@ const rootRouteChildren: RootRouteChildren = {
   DuvidasRoute: DuvidasRoute,
   PorQueArgeladoRoute: PorQueArgeladoRoute,
   PrivacidadeRoute: PrivacidadeRoute,
-  RobotsDottxtRoute: RobotsDottxtRoute,
-  SitemapDotxmlRoute: SitemapDotxmlRoute,
   GuiaInstalacaoArCondicionadoRoute: GuiaInstalacaoArCondicionadoRoute,
   ServicosSlugRoute: ServicosSlugRoute,
   ServicosIndexRoute: ServicosIndexRoute,

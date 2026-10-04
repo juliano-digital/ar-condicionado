@@ -16,7 +16,7 @@ export function HomePage() {
           <div className="hero-reassurance"><span><Check size={15}/> Orçamento personalizado</span><span><Check size={15}/> Atendimento local</span></div>
           <div className="hero-bottom-note"><span className="mini-snowflake"><Snowflake size={22}/></span><div><strong>Mais conforto. Menos preocupação.</strong><span>Da primeira conversa à instalação.</span></div></div>
         </div>
-        <div className="hero-visual"><img className="hero-image" src="/.netlify/images?url=/img/ambiente-argelado.png&w=928&fm=webp&q=85" srcSet="/.netlify/images?url=/img/ambiente-argelado.png&w=480&fm=webp&q=85 480w, /.netlify/images?url=/img/ambiente-argelado.png&w=720&fm=webp&q=85 720w, /.netlify/images?url=/img/ambiente-argelado.png&w=928&fm=webp&q=85 928w" sizes="(max-width: 760px) 92vw, (min-width: 1500px) 586px, 48vw" alt="Ambiente residencial com ar-condicionado split, sofá e iluminação natural, ilustrando o conforto de uma boa instalação" width={928} height={1152} fetchPriority="high"/>
+        <div className="hero-visual"><img className="hero-image" src="/img/ambiente-argelado.png" alt="Ambiente residencial com ar-condicionado split, sofá e iluminação natural, ilustrando o conforto de uma boa instalação" width={928} height={1152} fetchPriority="high"/>
           <div className="visual-top-label"><span className="status-dot"/> O seu lugar de ficar bem.</div>
           <div className="comfort-card"><span className="comfort-icon"><Wind size={27}/></span><div><span>O CLIMA CERTO, TODOS OS DIAS</span><strong>Conforto que se sente.</strong></div><span className="comfort-check"><Check size={15}/></span></div>
           <span className="photo-credit">Imagem ilustrativa de ambiente.</span>

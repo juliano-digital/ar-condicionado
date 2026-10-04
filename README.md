@@ -1,52 +1,56 @@
 # Argelado
 
-Site da Argelado, dedicado à instalação de ar-condicionado em Canoas, Rio Grande do Sul. O projeto apresenta a empresa, explica os serviços e direciona solicitações de orçamento ao WhatsApp (51) 99366-7248.
+Site da Argelado, empresa de instalação de ar-condicionado em Canoas, Rio Grande do Sul. Os pedidos de orçamento são preparados no navegador e enviados pelo visitante via WhatsApp (51) 99366-7248.
 
 ## Tecnologias
 
-- TanStack Start com renderização no servidor e roteamento por arquivos.
-- React 19 e TypeScript em modo estrito.
-- Vite 7, Tailwind CSS 4 e CSS responsivo com identidade visual própria.
-- Lucide para ícones e Google Fonts para as famílias Manrope e DM Sans.
-- Hospedagem Netlify e Netlify Image CDN para imagens responsivas em WebP.
+- TanStack Start e React com pré-renderização estática das páginas.
+- TypeScript em modo estrito e Vite.
+- Tailwind CSS 4, estilos responsivos próprios e ícones Lucide.
+- Arquivos estáticos compatíveis com hospedagem compartilhada, sem servidor Node.js em produção.
 
-## Desenvolvimento local
+## Desenvolvimento
 
-Requisitos: Node.js 22, pnpm e Netlify CLI.
+Requisitos: Node.js 22 ou superior e npm.
 
 ```bash
-pnpm install
-netlify dev --port 8889
+npm install
+npm run dev
 ```
 
-Acesse `http://localhost:8889`. A CLI fornece o ambiente Netlify, incluindo a entrega de imagens. O comando de produção configurado em `netlify.toml` é executado pelo pipeline de implantação.
+Acesse `http://localhost:3000`.
+
+## Build e publicação na Hostinger
+
+```bash
+npm ci
+npm run build
+```
+
+O build pré-renderiza as rotas e grava o site em `dist/client`, incluindo HTML, assets, `robots.txt` e sitemap. Publique **o conteúdo de `dist/client`** no diretório público do domínio na Hostinger (normalmente `public_html`). Não publique `dist/server`, `node_modules` ou os arquivos-fonte como raiz do site. A hospedagem compartilhada serve apenas os arquivos gerados; o build precisa ser executado antes da publicação.
+
+O domínio canônico é centralizado em `src/lib/site-config.ts`. Se o domínio mudar, atualize esse valor e o endereço do sitemap em `public/robots.txt` antes de gerar o build.
 
 ## Páginas
 
-- `/`: apresentação, serviços, diferenciais, etapas, atendimento em Canoas e dúvidas frequentes.
-- `/servicos/instalacao-split-canoas`: instalação de aparelhos split.
-- `/servicos/instalacao-residencial-canoas`: instalação para casas e apartamentos.
-- `/servicos/instalacao-comercial-canoas`: instalação para espaços comerciais.
-- `/guia/instalacao-ar-condicionado`: orientações para preparar o pedido de instalação.
-- `/privacidade`: explicação do fluxo de informações.
-- `/sitemap.xml` e `/robots.txt`: arquivos de descoberta para mecanismos de busca.
+- `/`: apresentação, serviços, diferenciais e atendimento em Canoas.
+- `/servicos`: visão geral dos serviços.
+- `/servicos/instalacao-split-canoas`, `/servicos/instalacao-residencial-canoas` e `/servicos/instalacao-comercial-canoas`.
+- `/por-que-argelado`, `/como-funciona`, `/atendimento`, `/duvidas` e `/contato`.
+- `/guia/instalacao-ar-condicionado` e `/privacidade`.
+- `/sitemap.xml` e `/robots.txt`.
 
-## Orçamentos
+## Orçamentos e privacidade
 
-O diálogo de orçamento organiza nome, bairro, tipo de imóvel e informações sobre o aparelho. Após preencher os campos, o visitante recebe um link para revisar e enviar sua mensagem no WhatsApp. Não há armazenamento de leads, envio automático de mensagens, banco de dados ou formulário de coleta no servidor. Os links diretos de WhatsApp e telefone também estão disponíveis.
+O formulário prepara uma mensagem com os dados informados e abre o WhatsApp para revisão e envio pelo visitante. O site não armazena leads nem envia mensagens automaticamente. A imagem principal é ilustrativa e fica em `public/img/ambiente-argelado.png`; não depende de CDN ou serviço de imagens da hospedagem.
 
-## SEO local
-
-As páginas possuem títulos e descrições próprios, URLs canônicas, idioma `pt-BR`, hierarquia de títulos e links internos. O conteúdo destaca instalação de ar-condicionado em Canoas de forma contextual. Foram incluídos dados estruturados de empresa HVAC, serviços e navegação. Endereço físico, avaliações, certificações, valores e horários não foram inventados.
-
-A URL pública é centralizada em `src/lib/site.ts`. Ao conectar um domínio próprio, configure a variável pública `VITE_SITE_URL` com a URL HTTPS principal, sem barra final, e publique novamente. Isso atualiza as URLs canônicas, os dados estruturados e o sitemap. Essa variável deve conter apenas a URL pública do site, nunca credenciais.
-
-Após a publicação, cadastre o domínio no Google Search Console e envie `/sitemap.xml`. A verificação da propriedade depende do acesso do responsável ao domínio ou à conta do Google. O site não inclui rastreamento de visitantes. A estrutura de SEO não representa garantia de indexação, posicionamento ou exibição de resultados enriquecidos. Para complementar os dados comerciais, use apenas um endereço real autorizado e mantenha as informações da empresa consistentes.
-
-## Conteúdo e imagem
-
-Dados de contato, descrições de serviços e perguntas frequentes ficam em `src/lib/site.ts`. A imagem de ambiente foi gerada para este projeto pelo Netlify AI Gateway, é explicitamente ilustrativa e não representa um trabalho realizado pela empresa. O arquivo está em `public/img/ambiente-argelado.png` e é entregue pelo Netlify Image CDN. Não existe integração de IA em tempo de execução nem necessidade de chave de IA para usar o site.
+O site não inclui rastreamento de visitantes. As fontes são carregadas pelo Google Fonts, que pode receber solicitações do navegador para entregar esses arquivos. O conteúdo não inventa endereço físico, avaliações, preços, certificações ou horários.
 
 ## Verificação
 
-Os arquivos e as referências foram revisados sem executar build, testes ou servidor local durante a criação. A instalação e a validação de produção ficam a cargo do pipeline automático da plataforma.
+```bash
+npm run typecheck
+npm run build
+```
+
+O build falha se alguma página vinculada não puder ser pré-renderizada.

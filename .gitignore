@@ -1,5 +1,17 @@
-# Local Netlify folder
-.netlify
+
 
 # Installed dependencies
 node_modules/
+
+# Generated static build
+dist/
+
+# Local environment files
+.env
+.env.*
+!.env.example
+
+# Logs and operating-system files
+*.log
+.DS_Store
+Thumbs.db
