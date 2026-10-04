@@ -1,0 +1,1 @@
+import{j as o}from"./index-DjXWZoRk.js";import{S as t}from"./SectionPage-DphJybv9.js";import"./SiteLayout-ClrqwEXZ.js";import"./QuoteDialog-Cpo2bwD4.js";import"./chevron-right-Cor7j2gf.js";import"./clipboard-check-DdPhkxRc.js";const e=()=>o.jsx(t,{sectionId:"contato"});export{e as component};
