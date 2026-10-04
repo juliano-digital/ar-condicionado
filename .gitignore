@@ -1,5 +1,8 @@
 
 
+# Generated framework files
+.tanstack/
+
 # Installed dependencies
 node_modules/
 

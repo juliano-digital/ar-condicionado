@@ -5,12 +5,10 @@ import viteTsConfigPaths from 'vite-tsconfig-paths'
 import tailwindcss from '@tailwindcss/vite'
 import { siteUrl } from './src/lib/site-config'
 
-const config = defineConfig({
+export default defineConfig({
   base: '/',
   plugins: [
-    viteTsConfigPaths({
-      projects: ['./tsconfig.json'],
-    }),
+    viteTsConfigPaths({ projects: ['./tsconfig.json'] }),
     tailwindcss(),
     tanstackStart({
       pages: [{ path: '/' }, { path: '/servicos/', sitemap: { exclude: true } }],
@@ -32,5 +30,3 @@ const config = defineConfig({
     emptyOutDir: true,
   },
 })
-
-export default config
