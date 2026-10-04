@@ -27,7 +27,7 @@ npm ci
 npm run build
 ```
 
-O build pré-renderiza as rotas e grava o site em `dist/client`, incluindo HTML, assets, `robots.txt` e sitemap. Publique **o conteúdo de `dist/client`** no diretório público do domínio na Hostinger (normalmente `public_html`). Não publique `dist/server`, `node_modules` ou os arquivos-fonte como raiz do site. A hospedagem compartilhada serve apenas os arquivos gerados; o build precisa ser executado antes da publicação.
+O build pré-renderiza as rotas uma por vez e grava o site em `dist/client`, incluindo HTML, assets, `robots.txt` e sitemap. A lista de páginas fica em `vite.config.ts`; inclua ali cada nova rota para que também seja pré-renderizada. Publique **o conteúdo de `dist/client`** no diretório público do domínio na Hostinger (normalmente `public_html`). Não publique `dist/server`, `node_modules` ou os arquivos-fonte como raiz do site. A hospedagem compartilhada serve apenas os arquivos gerados; o build precisa ser executado antes da publicação.
 
 O domínio canônico é centralizado em `src/lib/site-config.ts`. Se o domínio mudar, atualize esse valor e o endereço do sitemap em `public/robots.txt` antes de gerar o build.
 
